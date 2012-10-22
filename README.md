@@ -1,6 +1,6 @@
 # EagerLoadablePolymorphicAssociation
 
-TODO: Write a gem description
+add eager loading functionality to ActiveRecord's polymorphic association.
 
 ## Installation
 
@@ -18,7 +18,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+class Paste < ActiveRecord::Base
+  extend EagerLoadablePolymorphicAssociation
+
+  belongs_to :item, polymorphic: true
+  eager_loadable_polymorphic_association :item, [:snippet, :picture]
+end
+
+Paste.with_item.all # => eager load associated snippet or picture
+```
+
+1. extend this module
+2. decrare `eager\_loadable\_polymorphic\_association` during class definition.
+  1. first argument is polymorphic association name
+  2. second, pass an array which contains associated objects class names (item_type.under_score).
+ 3. step 2 defines new scope `with\_item`, which is the scope to eager load polymorphic objects.
 
 ## Contributing
 
