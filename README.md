@@ -30,10 +30,10 @@ Paste.with_item.all # => eager load associated snippet or picture
 ```
 
 1. extend this module
-2. decrare `eager\_loadable\_polymorphic\_association` during class definition.
+2. decrare `eager_loadable_polymorphic_association` during class definition.
   1. first argument is polymorphic association name
   2. second, pass an array which contains associated objects class names (item_type.under_score).
- 3. step 2 defines new scope `with\_item`, which is the scope to eager load polymorphic objects.
+3. step 2 defines new scope `with_item`, which is the scope to eager load polymorphic objects.
 
 ## Contributing
 
